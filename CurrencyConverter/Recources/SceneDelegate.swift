@@ -16,11 +16,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let vc = HomeViewController()
-        vc.modalPresentationStyle = .fullScreen
-        window.rootViewController = vc
-        window.makeKeyAndVisible()
-        self.window = window
+        
+        let networkMonitor = NetworkMonitor()
+        
+        networkMonitor.startMonitoring { [weak self] connected in
+            guard let self = self else { return }
+            guard connected else {
+                DispatchQueue.main.async {
+                    let vc = NoInternetViewController()
+                    vc.modalPresentationStyle = .fullScreen
+                    window.rootViewController = vc
+                    window.makeKeyAndVisible()
+                    self.window = window
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                let vc = HomeViewController()
+                vc.modalPresentationStyle = .fullScreen
+                window.rootViewController = vc
+                window.makeKeyAndVisible()
+                self.window = window
+            }
+        }
+        print("failed to connecti in secen delegate")
+        networkMonitor.stopMonitoring()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -117,6 +117,22 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    override func viewDidAppear(_ animated: Bool) {
+        let networkMonitor = NetworkMonitor()
+        networkMonitor.startMonitoring { [weak self] connected in
+            guard let self = self else { return }
+            guard connected else {
+                print("Failed to reconnect in homeVC")
+                DispatchQueue.main.async {
+                    let vc = NoInternetViewController()
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+                return
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -125,6 +141,11 @@ class HomeViewController: UIViewController {
         setUpPicker()
         convertButton.addTarget(self, action: #selector(didTapConvertButton), for: .touchUpInside)
         amountToConvertTextField.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let networkMonitor = NetworkMonitor()
+        networkMonitor.stopMonitoring()
     }
     
     private func setUpPicker() {
@@ -196,12 +217,7 @@ class HomeViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let model):
-                guard let key = self.currency2Label.text else {
-                    return
-                }
-                //self.conversionRate =  NSString(string: model.dict[key] ?? "").doubleValue
-                print("\(model.rate[currency2])")
-                self.conversionRate =  NSString(string: model.rate[key] ?? "0").doubleValue
+                self.conversionRate = model[currency2] as! Double
                 let result = self.conversionRate * NSString(string: amount).doubleValue
                 DispatchQueue.main.async {
                     self.conversionResultLabel.text = "\(result)"

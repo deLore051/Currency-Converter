@@ -8,14 +8,13 @@
 import Foundation
 
 struct ConversionRateResponse: Codable {
-    let rate: [String: String]  // Ovde bi trebalo da ide [String: Any] ali ne moze zbog codable ....
+    let rate: [String: Double]
     
 }
 
-// Probao sam nesto za [String: Test]
 struct Test: Codable {
     let date: String
-    let value: Double
+    let rate: Double
 
 }
 

@@ -16,6 +16,8 @@
 		7F763806272718F500F8B2E9 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F763805272718F500F8B2E9 /* APICaller.swift */; };
 		7F76380827271C9900F8B2E9 /* CurrencyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76380727271C9900F8B2E9 /* CurrencyResponse.swift */; };
 		7F76380C27272A2300F8B2E9 /* ConversionRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76380B27272A2300F8B2E9 /* ConversionRateResponse.swift */; };
+		7FB22376272831D60094F44E /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB22375272831D60094F44E /* NetworkMonitor.swift */; };
+		7FB22378272833DD0094F44E /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB22377272833DD0094F44E /* NoInternetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		7F763805272718F500F8B2E9 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		7F76380727271C9900F8B2E9 /* CurrencyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponse.swift; sourceTree = "<group>"; };
 		7F76380B27272A2300F8B2E9 /* ConversionRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionRateResponse.swift; sourceTree = "<group>"; };
+		7FB22375272831D60094F44E /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		7FB22377272833DD0094F44E /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				7F7637EB2726F9D700F8B2E9 /* HomeViewController.swift */,
+				7FB22377272833DD0094F44E /* NoInternetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				7F763805272718F500F8B2E9 /* APICaller.swift */,
+				7FB22375272831D60094F44E /* NetworkMonitor.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -186,7 +192,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F76380C27272A2300F8B2E9 /* ConversionRateResponse.swift in Sources */,
+				7FB22376272831D60094F44E /* NetworkMonitor.swift in Sources */,
 				7F7637EC2726F9D700F8B2E9 /* HomeViewController.swift in Sources */,
+				7FB22378272833DD0094F44E /* NoInternetViewController.swift in Sources */,
 				7F763806272718F500F8B2E9 /* APICaller.swift in Sources */,
 				7F7637E82726F9D700F8B2E9 /* AppDelegate.swift in Sources */,
 				7F76380827271C9900F8B2E9 /* CurrencyResponse.swift in Sources */,

@@ -52,7 +52,7 @@ final class APICaller {
         date: String,
         currency1: String,
         currency2: String,
-        completion: @escaping (Result<ConversionRateResponse, Error>) -> Void) {
+        completion: @escaping (Result<Dictionary<String, Any>, Error>) -> Void) {
         let maxDate = "2021-10-24"
         let minDate = "2020-11-22"
         
@@ -71,16 +71,17 @@ final class APICaller {
         }
         
         let task = URLSession.shared.dataTask(with: newUrl) { data, _, error in
-            print(data?.description)
             guard let data = data, error == nil else {
                 completion(.failure(APIError.failedToGetData))
                 return
             }
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                guard let result = json as? [String: String] else { return }
-                let rate = ConversionRateResponse(rate: result)
-                completion(.success(rate))
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                guard let result = json as? Dictionary<String, Any> else {
+                    print("Failed to get data")
+                    return
+                }
+                completion(.success(result))
             } catch (let jsonError) {
                 completion(.failure(jsonError))
             }
