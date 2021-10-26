@@ -15,7 +15,7 @@ class NoInternetViewController: UIViewController {
             systemName: "wifi.exclamationmark",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 100))
         imageView.clipsToBounds = true
-        imageView.tintColor = .secondarySystemBackground
+        imageView.tintColor = UIColor.label
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -24,8 +24,7 @@ class NoInternetViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "No Internet Connection!"
-        label.font = .systemFont(ofSize: 16)
-        label.textColor = .secondarySystemBackground
+        label.font = .systemFont(ofSize: 18)
         return label
     }()
     
@@ -70,7 +69,7 @@ class NoInternetViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         imageView.frame = CGRect(x: view.width / 2 - 75,
-                                 y: view.height / 2 - 75,
+                                 y: view.height / 2 - 200,
                                  width: 150,
                                  height: 150)
         
@@ -80,7 +79,7 @@ class NoInternetViewController: UIViewController {
                              height: 30)
         
         button.frame = CGRect(x: 30,
-                              y: label.bottom + 20,
+                              y: label.bottom + 50,
                               width: view.width - 60,
                               height: 50)
     }

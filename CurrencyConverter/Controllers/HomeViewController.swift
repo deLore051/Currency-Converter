@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
+        datePicker.layer.borderColor = UIColor.label.cgColor
         textField.inputView = datePicker
         
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
@@ -282,6 +283,15 @@ class HomeViewController: UIViewController {
                                      y: conversionResultLabel.bottom + 100,
                                      width: textFieldWidth,
                                      height: textFieldHeight)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.datePickerTextField.layer.borderColor = UIColor.label.cgColor
+        self.currency1TextField.layer.borderColor = UIColor.label.cgColor
+        self.currency2TextField.layer.borderColor = UIColor.label.cgColor
+        self.amountToConvertTextField.layer.borderColor = UIColor.label.cgColor
+        self.conversionResultLabel.layer.borderColor = UIColor.label.cgColor
     }
     
 }
