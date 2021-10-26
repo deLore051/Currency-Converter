@@ -12,6 +12,10 @@
 		7F7637EC2726F9D700F8B2E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7637EB2726F9D700F8B2E9 /* HomeViewController.swift */; };
 		7F7637F12726F9DA00F8B2E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F7637F02726F9DA00F8B2E9 /* Assets.xcassets */; };
 		7F7637F42726F9DA00F8B2E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7637F22726F9DA00F8B2E9 /* LaunchScreen.storyboard */; };
+		7F7638012727056300F8B2E9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7638002727056300F8B2E9 /* Extensions.swift */; };
+		7F763806272718F500F8B2E9 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F763805272718F500F8B2E9 /* APICaller.swift */; };
+		7F76380827271C9900F8B2E9 /* CurrencyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76380727271C9900F8B2E9 /* CurrencyResponse.swift */; };
+		7F76380C27272A2300F8B2E9 /* ConversionRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76380B27272A2300F8B2E9 /* ConversionRateResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		7F7637F02726F9DA00F8B2E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F7637F32726F9DA00F8B2E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F7637F52726F9DA00F8B2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F7638002727056300F8B2E9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7F763805272718F500F8B2E9 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		7F76380727271C9900F8B2E9 /* CurrencyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponse.swift; sourceTree = "<group>"; };
+		7F76380B27272A2300F8B2E9 /* ConversionRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionRateResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 		7F7637E62726F9D700F8B2E9 /* CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
+				7F763804272718E600F8B2E9 /* Managers */,
 				7F7637FF2726FAED00F8B2E9 /* Recources */,
 				7F7637FE2726FAE500F8B2E9 /* Models */,
 				7F7637FD2726FADE00F8B2E9 /* Views */,
@@ -82,6 +91,8 @@
 		7F7637FE2726FAE500F8B2E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7F76380727271C9900F8B2E9 /* CurrencyResponse.swift */,
+				7F76380B27272A2300F8B2E9 /* ConversionRateResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -92,8 +103,17 @@
 				7F7637F02726F9DA00F8B2E9 /* Assets.xcassets */,
 				7F7637E72726F9D700F8B2E9 /* AppDelegate.swift */,
 				7F7637E92726F9D700F8B2E9 /* SceneDelegate.swift */,
+				7F7638002727056300F8B2E9 /* Extensions.swift */,
 			);
 			path = Recources;
+			sourceTree = "<group>";
+		};
+		7F763804272718E600F8B2E9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7F763805272718F500F8B2E9 /* APICaller.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,9 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F76380C27272A2300F8B2E9 /* ConversionRateResponse.swift in Sources */,
 				7F7637EC2726F9D700F8B2E9 /* HomeViewController.swift in Sources */,
+				7F763806272718F500F8B2E9 /* APICaller.swift in Sources */,
 				7F7637E82726F9D700F8B2E9 /* AppDelegate.swift in Sources */,
+				7F76380827271C9900F8B2E9 /* CurrencyResponse.swift in Sources */,
 				7F7637EA2726F9D700F8B2E9 /* SceneDelegate.swift in Sources */,
+				7F7638012727056300F8B2E9 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
