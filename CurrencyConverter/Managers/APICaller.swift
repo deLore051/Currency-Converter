@@ -31,7 +31,6 @@ final class APICaller {
             return
         }
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            print(data)
             guard let data = data, error == nil else {
                 completion(.failure(APIError.failedToGetData))
                 return
