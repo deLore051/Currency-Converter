@@ -9,13 +9,13 @@ import UIKit
 import Network
 
 class NetworkMonitor {
-    //static let shared = NetworkMonitor()
 
     let monitor = NWPathMonitor()
     private var status: NWPath.Status = .requiresConnection
     var isReachable: Bool { status == .satisfied }
     var isReachableOnCellular: Bool = true
 
+    /// Start monitoring internet connection
     func startMonitoring(comletion: @escaping (Bool) -> Void) {
         monitor.pathUpdateHandler = { [weak self] path in
             self?.status = path.status
@@ -28,13 +28,11 @@ class NetworkMonitor {
                 print("No connection.")
                 comletion(false)
             }
-            print(path.isExpensive)
         }
-
-        //let queue = DispatchQueue(label: "NetworkMonitor")
         monitor.start(queue: .main)
     }
 
+    /// Stop monitoring the internet connection
     func stopMonitoring() {
         monitor.cancel()
     }

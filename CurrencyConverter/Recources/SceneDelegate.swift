@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         networkMonitor.startMonitoring { [weak self] connected in
             guard let self = self else { return }
             guard connected else {
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
                     let vc = NoInternetViewController()
                     vc.modalPresentationStyle = .fullScreen
                     window.rootViewController = vc
@@ -31,7 +32,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
                 return
             }
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 let vc = HomeViewController()
                 vc.modalPresentationStyle = .fullScreen
                 window.rootViewController = vc
@@ -39,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self.window = window
             }
         }
-        print("failed to connecti in secen delegate")
+        print("Failed to connect in secen delegate")
         networkMonitor.stopMonitoring()
     }
 

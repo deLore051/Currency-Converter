@@ -18,14 +18,11 @@ final class APICaller {
         static let currenciesAPI = "/latest/currencies.json"
     }
     
-    enum HTTPMethod {
-        case GET
-    }
-    
     enum APIError: Error {
         case failedToGetData
     }
     
+    /// Get all avalable currencies from API
     public func getAllCurrencies(completion: @escaping (Result<CurrencyResponse, Error>) -> Void) {
         guard let url = URL(string: "\(Constants.baseAPIurl + Constants.currenciesAPI)") else {
             return
@@ -47,6 +44,7 @@ final class APICaller {
         task.resume()
     }
     
+    /// Get conversion rate between two currencies from listing, on the chosen date.
     public func getConversionValue(
         date: String,
         currency1: String,
@@ -59,15 +57,11 @@ final class APICaller {
         
         if date.compare(maxDate) == .orderedDescending || date.compare(minDate) == .orderedAscending {
             url = URL(string: "\(Constants.baseAPIurl)/latest/currencies/\(currency1)/\(currency2).json")
-            print(url?.absoluteString ?? "")
         } else {
             url = URL(string: "\(Constants.baseAPIurl)/\(date)/currencies/\(currency1)/\(currency2).json")
-            print(url?.absoluteString ?? "")
         }
         
-        guard let newUrl = url else {
-            return
-        }
+        guard let newUrl = url else { return }
         
         let task = URLSession.shared.dataTask(with: newUrl) { data, _, error in
             guard let data = data, error == nil else {
