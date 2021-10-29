@@ -77,44 +77,22 @@ class NoInternetViewController: UIViewController {
     
     private func addConstraints() {
         // imageView
-        imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        imageView.centerYAnchor
-            .constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -50).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
         // label
-        label.topAnchor
-            .constraint(equalTo: imageView.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        label.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         label.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.75).isActive = true
         label.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         // button
-        button.topAnchor.constraint(equalTo: label.safeAreaLayoutGuide.bottomAnchor, constant: 50).isActive = true
-        button.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50).isActive = true
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         button.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.75).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//        imageView.frame = CGRect(x: view.width / 2 - 75,
-//                                 y: view.height / 2 - 200,
-//                                 width: 150,
-//                                 height: 150)
-//
-//        label.frame = CGRect(x: 20,
-//                             y: imageView.bottom + 5,
-//                             width: view.width - 40,
-//                             height: 30)
-//
-//        button.frame = CGRect(x: 30,
-//                              y: label.bottom + 50,
-//                              width: view.width - 60,
-//                              height: 50)
-//    }
-    
     
 }

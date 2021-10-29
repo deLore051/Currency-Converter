@@ -301,88 +301,82 @@ class HomeViewController: UIViewController {
         scrollView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor).isActive = true
         
         // contentView
-        contentView.widthAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.widthAnchor).isActive = true
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         contentView.heightAnchor.constraint(equalToConstant: 600).isActive = true
         
         // datePickerTextField
         datePickerTextField.topAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+            .constraint(equalTo: contentView.topAnchor, constant: 50).isActive = true
         datePickerTextField.centerXAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.centerXAnchor).isActive = true
+            .constraint(equalTo: contentView.centerXAnchor).isActive = true
         datePickerTextField.widthAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.widthAnchor, constant: -40).isActive = true
+            .constraint(equalTo: contentView.widthAnchor, constant: -40).isActive = true
         datePickerTextField.heightAnchor
             .constraint(equalToConstant: 50).isActive = true
         
         // currency1TextField
         currency1TextField.topAnchor
-            .constraint(equalTo: datePickerTextField.safeAreaLayoutGuide.bottomAnchor, constant: 30).isActive = true
+            .constraint(equalTo: datePickerTextField.bottomAnchor, constant: 30).isActive = true
         currency1TextField.leadingAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+            .constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         currency1TextField.widthAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: -30).isActive = true
+            .constraint(equalTo: contentView.widthAnchor, multiplier: 0.5, constant: -30).isActive = true
         currency1TextField.heightAnchor
             .constraint(equalToConstant: 50).isActive = true
         
         // currency2TextField
         currency2TextField.topAnchor
-            .constraint(equalTo: datePickerTextField.safeAreaLayoutGuide.bottomAnchor, constant: 30).isActive = true
+            .constraint(equalTo: datePickerTextField.bottomAnchor, constant: 30).isActive = true
         currency2TextField.leadingAnchor
-            .constraint(equalTo: currency1TextField.safeAreaLayoutGuide.trailingAnchor, constant: 20).isActive = true
+            .constraint(equalTo: currency1TextField.trailingAnchor, constant: 20).isActive = true
         currency2TextField.widthAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: -30).isActive = true
-        currency2TextField.heightAnchor
-            .constraint(equalToConstant: 50).isActive = true
+            .constraint(equalTo: contentView.widthAnchor, multiplier: 0.5, constant: -30).isActive = true
+        currency2TextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         // amountToConvertTextField
         amountToConvertTextField.topAnchor
-            .constraint(equalTo: currency1TextField.safeAreaLayoutGuide.bottomAnchor, constant: 30).isActive = true
+            .constraint(equalTo: currency1TextField.bottomAnchor, constant: 30).isActive = true
         amountToConvertTextField.leadingAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+            .constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         amountToConvertTextField.widthAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.75, constant: -30).isActive = true
-        amountToConvertTextField.heightAnchor
-            .constraint(equalToConstant: 50).isActive = true
+            .constraint(equalTo: contentView.widthAnchor, multiplier: 0.75, constant: -30).isActive = true
+        amountToConvertTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         // currency1Label
         currency1Label.topAnchor
-            .constraint(equalTo: currency1TextField.safeAreaLayoutGuide.bottomAnchor, constant: 30).isActive = true
+            .constraint(equalTo: currency1TextField.bottomAnchor, constant: 30).isActive = true
         currency1Label.leadingAnchor
-            .constraint(equalTo: amountToConvertTextField.safeAreaLayoutGuide.trailingAnchor, constant: 10).isActive = true
+            .constraint(equalTo: amountToConvertTextField.trailingAnchor, constant: 10).isActive = true
         currency1Label.widthAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.25, constant: -20).isActive = true
-        currency1Label.heightAnchor
-            .constraint(equalToConstant: 50).isActive = true
+            .constraint(equalTo: contentView.widthAnchor, multiplier: 0.25, constant: -20).isActive = true
+        currency1Label.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         // conversionResultLabel
         conversionResultLabel.topAnchor
-            .constraint(equalTo: amountToConvertTextField.safeAreaLayoutGuide.bottomAnchor, constant: 30).isActive = true
+            .constraint(equalTo: amountToConvertTextField.bottomAnchor, constant: 30).isActive = true
         conversionResultLabel.leadingAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+            .constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         conversionResultLabel.widthAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.75, constant: -30).isActive = true
-        conversionResultLabel.heightAnchor
-            .constraint(equalToConstant: 50).isActive = true
+            .constraint(equalTo: contentView.widthAnchor, multiplier: 0.75, constant: -30).isActive = true
+        conversionResultLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         // currency2Label
         currency2Label.topAnchor
-            .constraint(equalTo: amountToConvertTextField.safeAreaLayoutGuide.bottomAnchor, constant: 30).isActive = true
+            .constraint(equalTo: amountToConvertTextField.bottomAnchor, constant: 30).isActive = true
         currency2Label.leadingAnchor
-            .constraint(equalTo: amountToConvertTextField.safeAreaLayoutGuide.trailingAnchor, constant: 10).isActive = true
+            .constraint(equalTo: amountToConvertTextField.trailingAnchor, constant: 10).isActive = true
         currency2Label.widthAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.25, constant: -20).isActive = true
-        currency2Label.heightAnchor
-            .constraint(equalToConstant: 50).isActive = true
+            .constraint(equalTo: contentView.widthAnchor, multiplier: 0.25, constant: -20).isActive = true
+        currency2Label.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         // convertButton
         convertButton.topAnchor
-            .constraint(equalTo: conversionResultLabel.safeAreaLayoutGuide.bottomAnchor, constant: 100).isActive = true
+            .constraint(equalTo: conversionResultLabel.bottomAnchor, constant: 100).isActive = true
         convertButton.centerXAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.centerXAnchor).isActive = true
+            .constraint(equalTo: contentView.centerXAnchor).isActive = true
         convertButton.widthAnchor
-            .constraint(equalTo: contentView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.75).isActive = true
-        convertButton.heightAnchor
-            .constraint(equalToConstant: 50).isActive = true
+            .constraint(equalTo: contentView.widthAnchor, multiplier: 0.75).isActive = true
+        convertButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     /// Method that updates border colors of our elements when the user switches between light and dark mode.
