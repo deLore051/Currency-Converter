@@ -175,7 +175,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        getCurrencies()
         addSubviews()
         setUpPicker()
         addConstraints()
@@ -202,13 +201,17 @@ class HomeViewController: UIViewController {
         currency2TextField.inputView = pickerView
         pickerView.delegate = self
         pickerView.dataSource = self
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+        getCurrencies { [weak self] success in
             guard let self = self else { return }
-            self.currency1TextField.text = self.currenciesFullName[0]
-            self.currency2TextField.text = self.currenciesFullName[0]
-            self.currency1Label.text = self.currenciesShorthand[0]
-            self.currency2Label.text = self.currenciesShorthand[0]
-            self.conversionResultLabel.text = "0.0"
+            guard success else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.currency1TextField.text = self.currenciesFullName[0]
+                self.currency2TextField.text = self.currenciesFullName[0]
+                self.currency1Label.text = self.currenciesShorthand[0]
+                self.currency2Label.text = self.currenciesShorthand[0]
+                self.conversionResultLabel.text = "0.0"
+            }
         }
     }
     
@@ -227,7 +230,7 @@ class HomeViewController: UIViewController {
     }
     
     /// Method for retrieving available currencies in our listing.
-    private func getCurrencies() {
+    private func getCurrencies(completion: @escaping (Bool) -> Void) {
         APICaller.shared.getAllCurrencies { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -235,9 +238,11 @@ class HomeViewController: UIViewController {
                 for (key, value) in model.currnecies {
                     self.currenciesFullName.append(value)
                     self.currenciesShorthand.append(key)
+                    completion(true)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+                completion(false)
             }
         }
     }
